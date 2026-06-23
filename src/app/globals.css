@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Modak&family=Mouse+Memoirs&display=swap');
+@import "tailwindcss";
+
+:root {
+  --red: #F91914;
+  --red-dark: #B21222;
+  --mustard: #FFD700;
+  --mustard-dark: #ED900A;
+  --beige: #f5e3cd;
+  --beige-dark: #e8d4ba;
+  --dark-red: #4C0016;
+  --white: #FFFFFF;
+  --black: #000000;
+  --orange: #EF6F2E;
+}
+
+@theme inline {
+  --color-red: #F91914;
+  --color-red-dark: #B21222;
+  --color-mustard: #FFD700;
+  --color-mustard-dark: #ED900A;
+  --color-beige: #f5e3cd;
+  --color-beige-dark: #e8d4ba;
+  --color-dark-red: #4C0016;
+  --color-orange: #EF6F2E;
+  --font-modak: 'Modak', cursive;
+  --font-mouse: 'Mouse Memoirs', cursive;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--beige);
+  color: var(--black);
+  font-family: 'Mouse Memoirs', cursive;
+  overflow-x: hidden;
+}
+
+/* Font utility classes matching CRAV */
+.font-modak { font-family: 'Modak', cursive; }
+.font-mouse-memoirs { font-family: 'Mouse Memoirs', cursive; }
+
+/* ── Text Strokes ── */
+.text-stroke { -webkit-text-stroke: 2px var(--dark-red); color: transparent; }
+.text-stroke-white { -webkit-text-stroke: 2px white; color: transparent; }
+.text-stroke-beige { -webkit-text-stroke: 2px var(--beige); color: transparent; }
+.text-stroke-small { -webkit-text-stroke: 1px var(--red); color: var(--red); }
+.text-stroke-180 { -webkit-text-stroke: 3px var(--dark-red); color: transparent; }
+
+/* ── Typography ── */
+.heading-hero { font-size: clamp(8rem, 30vw, 20rem); line-height: 0.8; }
+.heading-section { font-size: clamp(3rem, 10vw, 10rem); line-height: 0.75; }
+.text-body { font-size: clamp(1rem, 1.6vw, 1.4rem); line-height: 1.5; }
+.text-small { font-size: clamp(0.75rem, 1.1vw, 1rem); }
+.text60 { font-size: clamp(1rem, 2vw, 1.8rem); }
+
+/* ══════════════════════════════════════════
+   ANIMATIONS
+   ══════════════════════════════════════════ */
+
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
+@keyframes floatSlow { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-10px) rotate(2deg)} }
+@keyframes floatReverse { 0%,100%{transform:translateY(0)} 50%{transform:translateY(15px)} }
+@keyframes floatRotate { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-15px) rotate(5deg)} }
+@keyframes slideUp { from{opacity:0;transform:translateY(60px)} to{opacity:1;transform:translateY(0)} }
+@keyframes slideDown { from{opacity:0;transform:translateY(-60px)} to{opacity:1;transform:translateY(0)} }
+@keyframes slideLeft { from{opacity:0;transform:translateX(60px)} to{opacity:1;transform:translateX(0)} }
+@keyframes slideRight { from{opacity:0;transform:translateX(-60px)} to{opacity:1;transform:translateX(0)} }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+@keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+@keyframes scaleIn { from{opacity:0;transform:scale(0.8)} to{opacity:1;transform:scale(1)} }
+@keyframes popIn { 0%{opacity:0;transform:scale(0) translateY(20px)} 70%{transform:scale(1.15) translateY(-5px)} 100%{opacity:1;transform:scale(1) translateY(0)} }
+@keyframes popInBounce { 0%{opacity:0;transform:scale(0)} 50%{transform:scale(1.2)} 70%{transform:scale(0.9)} 100%{opacity:1;transform:scale(1)} }
+@keyframes elasticIn { 0%{transform:scale(0)} 50%{transform:scale(1.08)} 70%{transform:scale(0.96)} 100%{transform:scale(1)} }
+@keyframes spin-slow { from{transform:rotate(0)} to{transform:rotate(360deg)} }
+@keyframes wiggle { 0%,100%{transform:rotate(0)} 25%{transform:rotate(-3deg)} 75%{transform:rotate(3deg)} }
+@keyframes fly { 0%{transform:translateX(-100%) translateY(0) rotate(-5deg)} 50%{transform:translateX(50vw) translateY(-30px) rotate(0)} 100%{transform:translateX(100vw) translateY(0) rotate(5deg)} }
+@keyframes blobMorph { 0%,100%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%} 25%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%} 50%{border-radius:50% 60% 30% 60%/30% 60% 70% 40%} 75%{border-radius:60% 40% 60% 30%/70% 30% 50% 60%} }
+@keyframes pulseRing { 0%{transform:scale(1);opacity:1} 100%{transform:scale(1.5);opacity:0} }
+@keyframes letterReveal { from{opacity:0;transform:translateY(100%)} to{opacity:1;transform:translateY(0)} }
+@keyframes wavyShift { 0%,100%{transform:translateX(0)} 50%{transform:translateX(-25%)} }
+@keyframes cardTilt { 0%,100%{transform:perspective(800px) rotateY(0)} 50%{transform:perspective(800px) rotateY(3deg)} }
+@keyframes shimmer { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
+@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+@keyframes dash { to{stroke-dashoffset:0} }
+@keyframes stickerPeel { 0%,100%{transform:rotate(var(--sticker-rotate,30deg)) scale(1)} 50%{transform:rotate(calc(var(--sticker-rotate,30deg) + 5deg)) scale(1.05)} }
+
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-float-slow { animation: floatSlow 4s ease-in-out infinite; }
+.animate-float-reverse { animation: floatReverse 3.5s ease-in-out infinite; }
+.animate-float-rotate { animation: floatRotate 5s ease-in-out infinite; }
+.animate-spin-slow { animation: spin-slow 20s linear infinite; }
+.animate-wiggle { animation: wiggle 2s ease-in-out infinite; }
+.animate-fly { animation: fly 12s linear infinite; }
+.animate-blob { animation: blobMorph 8s ease-in-out infinite; }
+.animate-marquee { animation: marquee 25s linear infinite; }
+.animate-sticker { animation: stickerPeel 4s ease-in-out infinite; }
+.animate-slide-up { animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-slide-down { animation: slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-slide-left { animation: slideLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-slide-right { animation: slideRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+.animate-fade-in-up { animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-scale-in { animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-pop-in { animation: popIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-pop-bounce { animation: popInBounce 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-elastic { animation: elasticIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+.delay-0 { animation-delay: 0s; }
+.delay-75 { animation-delay: 0.075s; }
+.delay-100 { animation-delay: 0.1s; }
+.delay-150 { animation-delay: 0.15s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-800 { animation-delay: 0.8s; }
+.delay-1000 { animation-delay: 1s; }
+.delay-1200 { animation-delay: 1.2s; }
+
+.reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-60px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(60px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+.reveal-scale { opacity: 0; transform: scale(0.85); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal-scale.visible { opacity: 1; transform: scale(1); }
+.reveal-rotate { opacity: 0; transform: rotate(-8deg) scale(0.9); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal-rotate.visible { opacity: 1; transform: rotate(0) scale(1); }
+
+.stagger-children > * { opacity: 0; transform: translateY(30px); transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+.stagger-children.visible > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.05s; }
+.stagger-children.visible > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.12s; }
+.stagger-children.visible > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.19s; }
+.stagger-children.visible > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.26s; }
+.stagger-children.visible > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.33s; }
+.stagger-children.visible > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+
+/* ── Blob Button ── */
+.blob-btn {
+  position: relative; display: inline-block;
+  padding: 1rem 3rem; background: var(--red); color: white;
+  border: none; border-radius: 50%;
+  font-family: 'Mouse Memoirs', cursive; font-size: 1.2rem;
+  font-weight: bold; text-transform: uppercase; cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); overflow: hidden;
+}
+.blob-btn:hover { transform: scale(1.08); background: var(--dark-red); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+.blob-btn::before {
+  content: ''; position: absolute; inset: -3px;
+  background: var(--red); border-radius: inherit; z-index: -1;
+  animation: blobMorph 8s ease-in-out infinite;
+}
+
+.magnetic-btn {
+  position: relative; display: inline-flex; align-items: center; justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.horizontal-scroll {
+  display: flex; gap: 2rem; overflow-x: auto;
+  scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; padding: 2rem 0;
+}
+.horizontal-scroll::-webkit-scrollbar { display: none; }
+.horizontal-scroll > * { scroll-snap-align: center; flex-shrink: 0; }
+
+.sticker {
+  position: relative; display: inline-block; cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.15));
+}
+.sticker:hover { transform: rotate(-5deg) scale(1.08) !important; }
+
+.card-hover { transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+.card-hover:hover { transform: translateY(-12px) scale(1.02); box-shadow: 0 25px 50px rgba(0,0,0,0.12); }
+
+.menu-card {
+  background: white; border-radius: 1.5rem; overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+.menu-card:hover { transform: translateY(-10px) scale(1.01); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+.menu-card:hover .menu-card-img { transform: scale(1.05); }
+.menu-card-img { transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--beige); }
+::-webkit-scrollbar-thumb { background: var(--red); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--dark-red); }
+
+/* ── Grain overlay ── */
+.grain::after {
+  content: ''; position: fixed; inset: 0; z-index: 9998;
+  pointer-events: none; opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--red), var(--mustard));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.marquee-track {
+  display: flex; gap: 4rem; width: max-content;
+  animation: marquee 30s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+/* ── Cursor follower (CRAV style) ── */
+.cursor-dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--red); position: fixed;
+  pointer-events: none; z-index: 99999;
+  mix-blend-mode: difference;
+  will-change: transform;
+}
+.cursor-ring {
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 2px solid var(--red); position: fixed;
+  pointer-events: none; z-index: 99999;
+  mix-blend-mode: difference;
+  will-change: transform;
+}
+
+.page-enter { animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+/* ── Loading screen layers ── */
+.loader-bar {
+  position: relative; overflow: hidden;
+}
+
+/* ── Glitch text effect ── */
+.glitch { position: relative; }
+.glitch::before, .glitch::after {
+  content: attr(data-text); position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%; overflow: hidden;
+}
+.glitch::before { left: 2px; text-shadow: -2px 0 var(--red); clip-path: inset(0 0 65% 0); animation: glitchTop 3s infinite linear alternate-reverse; }
+.glitch::after { left: -2px; text-shadow: 2px 0 var(--mustard); clip-path: inset(65% 0 0 0); animation: glitchBottom 3s infinite linear alternate-reverse; }
+@keyframes glitchTop { 0%{clip-path:inset(0 0 85% 0)} 10%{clip-path:inset(15% 0 60% 0)} 20%{clip-path:inset(50% 0 20% 0)} 30%{clip-path:inset(10% 0 70% 0)} 40%{clip-path:inset(80% 0 5% 0)} 50%{clip-path:inset(25% 0 55% 0)} 60%{clip-path:inset(60% 0 15% 0)} 70%{clip-path:inset(5% 0 80% 0)} 80%{clip-path:inset(45% 0 30% 0)} 90%{clip-path:inset(70% 0 10% 0)} 100%{clip-path:inset(0 0 85% 0)} }
+@keyframes glitchBottom { 0%{clip-path:inset(85% 0 0 0)} 10%{clip-path:inset(60% 0 15% 0)} 20%{clip-path:inset(20% 0 50% 0)} 30%{clip-path:inset(70% 0 10% 0)} 40%{clip-path:inset(5% 0 80% 0)} 50%{clip-path:inset(55% 0 25% 0)} 60%{clip-path:inset(15% 0 60% 0)} 70%{clip-path:inset(80% 0 5% 0)} 80%{clip-path:inset(30% 0 45% 0)} 90%{clip-path:inset(10% 0 70% 0)} 100%{clip-path:inset(85% 0 0 0)} }
