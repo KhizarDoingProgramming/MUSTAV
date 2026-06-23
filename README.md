@@ -4,7 +4,7 @@ A modern food ordering website for **MUSTAV**, a premium smashed burger restaura
 
 ### Live Demo
 
-> **[mustav.shop](https://mustav.shop)** — check it out live on Vercel
+> **[mustav](https://mustav.vercel.app)** — check it out live on Vercel
 
 ---
 
