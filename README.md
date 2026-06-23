@@ -144,7 +144,7 @@ git push origin main
 
 ## Made By
 
-**Khizar** — smashing burgers and code since 2024
+**MUSTAFA** — smashing burgers and code since 2024
 
 ---
 
