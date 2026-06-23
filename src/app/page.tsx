@@ -467,15 +467,15 @@ export default function Home() {
                       <circle cx="50" cy="50" r="30" fill="white" opacity="0.15" />
                       <circle cx="50" cy="50" r="20" fill="white" opacity="0.1" />
                     </svg>
+                    <span className="absolute inset-0 flex items-center justify-center text-2xl card-fallback">{card.fallback}</span>
                     <Image
                       src={card.icon}
                       alt={card.title}
                       width={80}
                       height={80}
-                      className="absolute inset-0 w-full h-full object-contain p-[15%]"
+                      className="absolute inset-0 w-full h-full object-contain p-[15%] z-10"
                       onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
                     />
-                    <span className="absolute inset-0 flex items-center justify-center text-2xl card-fallback">{card.fallback}</span>
                   </div>
                   <h3
                     className="text-[1.5vw] max-md:text-[5vw] text-black uppercase mb-2"
